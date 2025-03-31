@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO MAIN</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h4 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="text"] {
+            width: 60%;
+        }
+
+        input[type="submit"] {
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 150px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #000000;
+        }
+
+        /* Centering Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-container {
+            text-align: center;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+            background-color: #FF9800;
+            padding: 5px 10px;
+            display: inline-block;
+            border-radius: 4px;
+            margin: 10px;
+        }
+
+        a:hover {
+            background-color: #FB8C00;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/">add task</a>
+    <!-- Working TODO Section -->
+    <div class="container">
+        <h4>EDIT TODO</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% allTask.map((item)=> {
+                    if (!item.status) { %>
+                    <tr>
+                        <td>
+                            <%= item.task %>
+                        </td>
+                        <td><a href="/completeTask/<%= item.id %>">Complete</a>
+                            <a href="/updateTast/<%= item.id %>">Update</a></td>
+                    </tr>
+                    <% } }) %>
+            </tbody>
+        </table>
+
+        <!-- Done TODO Section -->
+        <h4>Done TODO</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% allTask.map((item)=> {
+                    if (item.status) { %>
+                    <tr>
+                        <td>
+                            <%= item.task %>
+                        </td>
+                        <td><a href="/deleteTask/<%= item.id %>">Delete</a></td>
+                    </tr>
+                    <% } }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

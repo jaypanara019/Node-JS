@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-contant-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.text-align-center {
+    text-align: right;
+}
+
+.w-1 {
+    width: 100%;
+}
+
+.w-2 {
+    width: 50%;
+}
+
+.w-3 {
+    width: 33.33%;
+}
+
+.w-4 {
+    width: 25%;
+}
+
+.w-5 {
+    width: 20%;
+}
+
+.drop-feathur-contant{
+	text-align: center;
+}
+
+.ui-content{
+	padding: 130px 0;
+}
+
+.drop-feathur .drop-feathur-contant p{
+	padding: 0 20px 130px 20px;  
+}
+
+.drop-feathur .drop-feathur-contant h2{
+	padding-bottom: 20px;
+
+}
+
+.drop-feathur .ui-pixel{
+	width: 250px;
+	height: 333px;
+	border: 2px solid lightgray;
+	text-align: center;
+	padding: 20% 0;
+	border-radius: 10px;
+}
+
+.gol{
+	width: 80px;
+	height: 80px;
+	background-color: #ff214f;
+	border-radius: 50%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+    justify-content: space-around;
+}
+
+.ui-pixel h4{
+	padding: 20px;
+	font-size: 20px;
+}
+
+.ui-pixel .gol i{
+	font-size: 30px;
+	color: white;
+
+}

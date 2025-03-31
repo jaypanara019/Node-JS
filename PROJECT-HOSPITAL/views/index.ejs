@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Form</title>
+    <!-- Include Bootstrap CSS from a CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container col-4 mt-5">
+        <h2 class="text-center mb-4">Patient Information Form</h2>
+        
+        <form action="/submit" method="POST" enctype="multipart/form-data" class="bg-light p-4 rounded shadow">
+            
+            <!-- Patient Name -->
+            <div class="form-group">
+                <label for="patient_name">Name:</label>
+                <input type="text" id="patient_name" name="patient_name" class="form-control" required>
+            </div>
+            
+            <!-- Patient Age -->
+            <div class="form-group">
+                <label for="patient_age">Age:</label>
+                <input type="number" id="patient_age" name="patient_age" class="form-control" required>
+            </div>
+            
+            <!-- Gender -->
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="male" name="patient_gender" value="Male" class="form-check-input" required>
+                    <label for="male" class="form-check-label">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="female" name="patient_gender" value="Female" class="form-check-input" required>
+                    <label for="female" class="form-check-label">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="other" name="patient_gender" value="Other" class="form-check-input" required>
+                    <label for="other" class="form-check-label">Other</label>
+                </div>
+            </div>
+            
+            <!-- Disease -->
+            <div class="form-group">
+                <label for="disease">Disease:</label>
+                <input type="text" id="disease" name="disease" class="form-control" required>
+            </div>
+            
+            <!-- Patient Photo -->
+            <div class="form-group">
+                <label for="patient_photo">Upload Photo:</label>
+                <input type="file" id="patient_photo" name="patient_photo" class="form-control-file" accept="image/*">
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

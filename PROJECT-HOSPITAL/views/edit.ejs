@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Patients</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Edit Patient Records</h2>
+        
+        <% if (patients.length > 0) { %>
+            <% patients.forEach(patient => { %>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= patient.name %></h5>
+                        <p class="card-text"><strong>Age:</strong> <%= patient.age %></p>
+                        <p class="card-text"><strong>Gender:</strong> <%= patient.gender %></p>
+                        <p class="card-text"><strong>Disease:</strong> <%= patient.disease %></p>
+                        <% if (patient.photo) { %>
+                            <img src="<%= patient.photo %>" alt="Patient Photo" class="img-fluid" width="100">
+                        <% } %>
+
+                        <!-- Debugging Output -->
+                        <p>Debug ID: <%= patient.id %></p>
+
+                        <!-- Corrected Button -->
+                        <button class="btn btn-warning btn-sm" onclick="editPatient('<%= patient.id %>')">Edit</button>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p class="text-center">No patients available.</p>
+        <% } %>
+    </div>
+
+    <script>
+        function editPatient(id) {
+            alert("Editing patient with ID: " + id); // Debugging Alert
+        }
+    </script>
+</body>
+</html>

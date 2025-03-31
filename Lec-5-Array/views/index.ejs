@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <th>name</th>
+                <th>email</th>
+                <th>age</th>
+                <th>phone</th>
+            </tr>
+
+            <% studentArr.map((v,i)=>{ %>
+                <tr>
+                    <td>
+                        <%= v.name %>
+                    </td>
+                    <td>
+                        <%= v.email %>
+                    </td>
+                    <td>
+                        <%= v.age %>
+                    </td>
+                    <td>
+                        <%= v.phone %>
+                    </td>
+                </tr>
+                <% }) %>
+
+                    <!-- <% %> condition -->
+                    <!-- <%= %> print or show data -->
+                    <!-- <%- %> include (attach) -->
+                    <!-- <%# %> comment in ejs -->
+        </table>
+    </center>
+</body>
+
+</html>

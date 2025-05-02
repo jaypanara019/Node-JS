@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineScope</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+    <style>
+        :root {
+            --primary: #00c2cb;
+            --dark-bg: #0d1117;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-light: #f8f8f8;
+            --accent: #ffc107;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            backdrop-filter: blur(12px);
+            background-color: rgba(13, 17, 23, 0.9);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(135deg, rgba(0, 194, 203, 0.8), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            margin-top: 80px;
+        }
+
+        .banner h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .banner p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-glow {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            padding: 12px 28px;
+            box-shadow: 0 4px 12px rgba(0, 194, 203, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px var(--primary);
+            transform: scale(1.05);
+        }
+
+        .btn-glow:active {
+            box-shadow: 0 0 8px rgba(0, 194, 203, 0.4);
+            transform: scale(1);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background-color: #0b0f14;
+        }
+
+        .feature-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-glass:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 194, 203, 0.2);
+        }
+
+        /* Movie Slider */
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1117;
+            padding: 30px 0;
+            text-align: center;
+            color: #999;
+        }
+
+        .social-icons a {
+            color: #bbb;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 3rem;
+            }
+
+            .banner p {
+                font-size: 1.1rem;
+            }
+
+            .nav-link {
+                margin-left: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .btn-glow {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">🎞️ CineScope</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/form">Add Movie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#movieInventory">Collection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">Footer</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="container text-center text-dark">
+            <h1 class="display-3 fw-bold text-shadow">Welcome to <span class="text-primary">CineScope</span></h1>
+            <p class="lead mb-4 text-shadow text-dark">Explore, Collect, and Curate Your Movie Collection Like Never
+                Before</p>
+            <a href="/form" class="btn btn-glow btn-lg px-5 py-3 fw-semibold rounded-3 shadow-lg">
+                ➕ Add Your Favorite Movie
+            </a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section text-light" id="features">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5" style="color: #00c2cb;">✨ What Makes CineScope Awesome</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 text-center border border-secondary shadow feature-glass h-100">
+                        <i class="bi bi-journal-richtext display-5 mb-3 text-warning"></i>
+                        <h5 class="fw-bold">Organize Like a Pro</h5>
+                        <p>Create a personal catalog with tags, genres, and custom notes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 text-center border border-secondary shadow feature-glass h-100">
+                        <i class="bi bi-cloud-arrow-down display-5 mb-3 text-primary"></i>
+                        <h5 class="fw-bold">Cloud Sync</h5>
+                        <p>Access your library anywhere, anytime — no device limits.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 text-center border border-secondary shadow feature-glass h-100">
+                        <i class="bi bi-bar-chart-fill display-5 mb-3 text-success"></i>
+                        <h5 class="fw-bold">Watch Stats</h5>
+                        <p>Track watch time, ratings, and revisit your top-rated titles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Library Section -->
+    <section class="py-5" id="movieInventory" style="background-color: #0b0f14;">
+        <div class="container">
+            <h2 class="text-warning fw-bold mb-4 text-center">🎞️ Movies Library</h2>
+
+            <!-- Movie Grid -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-lg-5 g-4">
+                <% record.forEach((e)=> { %>
+                    <div class="col">
+                        <div class="slider-item">
+                            <a href="/movieShow/<%= e.id %>">
+                                <img src="<%= e.movieImage %>" alt="Movie Poster" class="img-fluid rounded-3" />
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" style="background-color: #181a1b; color: #f8f8f8; padding: 60px 0; font-size: 0.875rem;">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <!-- Column 1: About Section -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-light">CineScope</h5>
+                    <p class="">Explore, collect, and curate your movie collection like never before. Join us
+                        in the world of cinematic art!</p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-light">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class=" text-decoration-none">Home</a></li>
+                        <li><a href="/form" class=" text-decoration-none">Add Movie</a></li>
+                        <li><a href="#features" class=" text-decoration-none">Features</a></li>
+                        <li><a href="#movieInventory" class=" text-decoration-none">Collection</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-light">Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:support@cineScope.com"
+                                class=" text-decoration-none">support@cineScope.com</a></li>
+                        <li><a href="tel:+1234567890" class=" text-decoration-none">+1 234 567 890</a></li>
+                        <li><a href="#" class=" text-decoration-none">Visit our office</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Social Media Icons -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-light">Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class=" me-3" style="font-size: 1.8rem; transition: color 0.3s;">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class=" me-3" style="font-size: 1.8rem; transition: color 0.3s;">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="#" class="" style="font-size: 1.8rem; transition: color 0.3s;">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="text-center mt-5 pt-4 border-top pt-3">
+                <p class=" mb-0">&copy; 2025 CineScope — All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Add Movie Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f3f4f6;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+    }
+
+    .container {
+      margin-top: 60px;
+      max-width: 900px;
+    }
+
+    .form-card {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-control {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      color: #555;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .form-control:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    }
+
+    .form-group label {
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .form-group input[type="file"] {
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    .btn-netflix {
+      background-color: #e50914;
+      border: none;
+      color: #fff;
+      padding: 14px;
+      font-weight: 600;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-netflix:hover {
+      background-color: #b00710;
+      transform: translateY(-2px);
+    }
+
+    .btn-netflix:active {
+      transform: translateY(0);
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .form-group img {
+      max-width: 150px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .form-group .text-muted {
+      font-size: 0.9rem;
+      color: #7f8c8d;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 576px) {
+      .form-card {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .btn-netflix {
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="form-card">
+          <h2>🎥 Add a Movie</h2>
+          <form method="post" action="/movie-submit" enctype="multipart/form-data" id="movieForm">
+            <!-- Movie Title -->
+            <div class="form-group">
+              <label for="movieName">Movie Title</label>
+              <input type="text" class="form-control" name="movieName" placeholder="Enter Movie Title" required>
+            </div>
+
+            <!-- Genre -->
+            <div class="form-group">
+              <label for="genre">Genre</label>
+              <input type="text" class="form-control" name="genre" placeholder="Enter Genre" required>
+            </div>
+
+            <!-- Ticket Price -->
+            <div class="form-group">
+              <label for="ticketPrice">Ticket Price (₹)</label>
+              <input type="number" class="form-control" name="ticketPrice" placeholder="Enter Ticket Price" required>
+            </div>
+
+            <!-- Rating -->
+            <div class="form-group">
+              <label for="rating">Rating</label>
+              <input type="text" class="form-control" name="rating" placeholder="Enter Rating" required>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" name="description" rows="4" placeholder="Enter Movie Description" required></textarea>
+            </div>
+
+            <!-- Movie Image -->
+            <div class="form-group">
+              <label for="movieImage">Movie Image</label>
+              <input type="file" class="form-control" name="movieImage" required>
+              <small class="text-muted">Upload an image (optional)</small>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error-message" class="error-message"></div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-netflix">Add Movie</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript for form validation -->
+  <script>
+    // Example of displaying error message dynamically
+    document.getElementById("movieForm").addEventListener("submit", function (e) {
+      var formValid = true;
+      var errorMessage = "";
+
+      // Example: Checking if fields are valid
+      const movieName = document.querySelector('input[name="movieName"]').value;
+      if (!movieName) {
+        formValid = false;
+        errorMessage += "Movie title is required.<br>";
+      }
+
+      if (!formValid) {
+        e.preventDefault(); // Prevent form submission
+        document.getElementById("error-message").innerHTML = errorMessage;
+        document.getElementById("error-message").style.display = "block";
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
